@@ -11,6 +11,10 @@ from .serializers import QuoteSerializer, AuthorSerializer
 def get_random_quote(request: Request):
     # Order randomly and select first
     random_quote = Quote.objects.order_by("?").first()
+
+    if not random_quote:
+        return HttpResponseNotFound()
+
     serializer = QuoteSerializer(random_quote)
     return JsonResponse(serializer.data)
 
@@ -24,7 +28,13 @@ def get_all_authors(request: Request):
 
 @api_view(['GET'])
 def get_random_quote_for_author(request: Request, author_name: str):
-    first_name, last_name = author_name.split(' ')
+    names = author_name.split(' ')
+    if len(names) == 1:
+        first_name = names[0]
+        last_name = ""
+    else:
+        first_name, last_name = author_name.split(' ', maxsplit=1)
+
     # Filter to supplied author, order randomly and select first
     random_quote = Quote.objects.filter(
         author__first_name=first_name,

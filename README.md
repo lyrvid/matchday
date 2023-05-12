@@ -40,6 +40,8 @@ Pull a random quote from the database
 }
 ```
 
+#### Returns `404` if no quotes in the database
+
 ### `/authors`
 
 Pull all the authors from the database

@@ -12,6 +12,10 @@ djangorestframework = "^3.14.0"
 requests = "^2.30.0"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+responses = "^0.23.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

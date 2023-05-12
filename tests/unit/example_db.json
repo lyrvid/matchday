@@ -1,0 +1,15 @@
+[
+  {"model": "matchday.author", "pk": 1, "fields": {"first_name": "Lei", "last_name": "Ferretti"}},
+  {"model": "matchday.author", "pk": 2, "fields": {"first_name": "Mr.", "last_name": "Mouse"}},
+  {"model": "matchday.author", "pk": 3, "fields": {"first_name": "James", "last_name": "Allen"}},
+  {"model": "matchday.author", "pk": 4, "fields": {"first_name": "Samuel", "last_name": "Butler"}},
+  {"model": "matchday.author", "pk": 5, "fields": {"first_name": "Yanni", "last_name": ""}},
+  {"model": "matchday.author", "pk": 6, "fields": {"first_name": "Sarah", "last_name": "Jessica Parker"}},
+  {"model": "matchday.quote", "pk": 1, "fields": {"quote": "Cheese is delicious", "author": 1}},
+  {"model": "matchday.quote", "pk": 2, "fields": {"quote": "Cheese is good", "author": 2}},
+  {"model": "matchday.quote", "pk": 3, "fields": {"quote": "A man is literally what he thinks.", "author": 3}},
+  {"model": "matchday.quote", "pk": 4, "fields": {"quote": "Correct what you can. Learn from what you can't.", "author": 3}},
+  {"model": "matchday.quote", "pk": 5, "fields": {"quote": "Words are clothes that thoughts wear", "author": 4}},
+  {"model": "matchday.quote", "pk": 6, "fields": {"quote": "If my music can change someone's mood for the better even a little bit, that's amazing.", "author": 5}},
+  {"model": "matchday.quote", "pk": 7, "fields": {"quote": "Hello.", "author": 6}}
+]
