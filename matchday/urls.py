@@ -23,6 +23,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("qotd/", matchday.routes.get_random_quote),
     path("authors/", matchday.routes.get_all_authors),
-    path("quotd/<str:author_name>", matchday.routes.get_random_quote_for_author),
     path("quotd/zen", matchday.routes.get_random_quote_from_zen),
+    path("quotd/<str:author_name>", matchday.routes.get_random_quote_for_author),
 ]

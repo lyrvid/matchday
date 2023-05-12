@@ -74,4 +74,23 @@ First name and last name must be provided in the url
 
 #### Will return `404` if no quote/author exists that matches
 
+### `/quotd/zen`
+
+Pull a random quote from the ZenQuotes API
+
+#### Example response
+```json
+{
+  "quote": "Cheese is tasty",
+  "author": {
+    "first_name": "Mr.",
+    "last_name": "Mouse"
+  }
+}
+```
+
+#### Will return `500` if unable to get a quote from zenquotes's API
+
 ## Scope reduction
+1. Make endpoints asynchronous, future proofs complicated work
+2. Dynamically generate the OpenAPI specification for all the endpoints
