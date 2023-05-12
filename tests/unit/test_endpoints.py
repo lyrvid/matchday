@@ -115,6 +115,66 @@ class EndpointTestCase(TestCase):
 
         assert response.json() == expected_json
 
+    @responses.activate
+    def test_quotd_zen_first_name(self):
+        rsp = responses.Response(
+            method="GET",
+            url="https://zenquotes.io/api/random",
+            json=[
+                {
+                    "q": "While some of us act without thinking, too many of us think without acting.",
+                    "a": "Dan",
+                    "h": "<blockquote>&ldquo;While some of us act without thinking, too many of us think without "
+                         "acting.&rdquo; &mdash; <footer>Dan Millman</footer></blockquote>"
+                }
+            ]
+        )
+
+        responses.add(rsp)
+
+        response = self.client.get("/quotd/zen", {}, True)
+        assert response.status_code == 200
+
+        expected_json = {
+            "quote": "While some of us act without thinking, too many of us think without acting.",
+            "author": {
+                "first_name": "Dan",
+                "last_name": ""
+            }
+        }
+
+        assert response.json() == expected_json
+
+    @responses.activate
+    def test_quotd_zen_many_names(self):
+        rsp = responses.Response(
+            method="GET",
+            url="https://zenquotes.io/api/random",
+            json=[
+                {
+                    "q": "While some of us act without thinking, too many of us think without acting.",
+                    "a": "Dan One Two",
+                    "h": "<blockquote>&ldquo;While some of us act without thinking, too many of us think without "
+                         "acting.&rdquo; &mdash; <footer>Dan Millman</footer></blockquote>"
+                }
+            ]
+        )
+
+        responses.add(rsp)
+
+        response = self.client.get("/quotd/zen", {}, True)
+        assert response.status_code == 200
+
+        expected_json = {
+            "quote": "While some of us act without thinking, too many of us think without acting.",
+            "author": {
+                "first_name": "Dan",
+                "last_name": "One Two"
+            }
+        }
+
+        assert response.json() == expected_json
+
 
 class EmptyEndpointTestCase(TestCase):
 

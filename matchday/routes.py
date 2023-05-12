@@ -7,6 +7,16 @@ from .models import Quote, Author
 from .serializers import QuoteSerializer, AuthorSerializer
 
 
+def _split_name(name: str) -> (str, str):
+    names = name.split(' ')
+    if len(names) == 1:
+        first_name = names[0]
+        last_name = ""
+    else:
+        first_name, last_name = name.split(' ', maxsplit=1)
+    return first_name, last_name
+
+
 @api_view(['GET'])
 def get_random_quote(request: Request):
     # Order randomly and select first
@@ -28,12 +38,7 @@ def get_all_authors(request: Request):
 
 @api_view(['GET'])
 def get_random_quote_for_author(request: Request, author_name: str):
-    names = author_name.split(' ')
-    if len(names) == 1:
-        first_name = names[0]
-        last_name = ""
-    else:
-        first_name, last_name = author_name.split(' ', maxsplit=1)
+    first_name, last_name = _split_name(author_name)
 
     # Filter to supplied author, order randomly and select first
     random_quote = Quote.objects.filter(
@@ -58,12 +63,12 @@ def get_random_quote_from_zen(request: Request):
         return HttpResponseServerError()
 
     json = response.json()[0]
-    f_name, l_name = json["a"].split(' ')
+    first_name, last_name = _split_name(json["a"])
     quote = {
         "quote": json["q"],
         "author": {
-            "first_name": f_name,
-            "last_name": l_name,
+            "first_name": first_name,
+            "last_name": last_name,
         }
     }
 
