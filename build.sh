@@ -2,5 +2,5 @@ export DJANGO_SETTINGS_MODULE=matchday.settings
 
 poetry install
 
-django-admin makemigrations
-django-admin migrate
+poetry run ./manage.py makemigrations matchday
+poetry run ./manage.py migrate
