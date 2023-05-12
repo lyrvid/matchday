@@ -23,6 +23,10 @@ If you change them (update, add, remote, etc.) make sure to run
 `poetry run ./manage.py makemigrations matchday` to generate the required migrations 
 to be applied to all dbs on startup.
 
+### Loading sample data
+You can load up some sample data by running the command 
+`poetry run ./manage.py loaddata tests/unit/example_db.json` from the project root
+
 ### Running the tests
 Tests can be run using the command `poetry run ./manage.py test`. Mock data is populated
 via the json file `example_db.json`
