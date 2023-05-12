@@ -65,6 +65,11 @@ Pull all the authors from the database
   ]
 }
 ```
+```json
+{
+  "authors": []
+}
+```
 
 ### `/quotd/Mr. Mouse`
 
