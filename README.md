@@ -22,3 +22,38 @@ The model classes in `models.py` control the schema of the underlying database.
 If you change them (update, add, remote, etc.) make sure to run 
 `poetry run ./manage.py makemigrations matchday` to generate the required migrations 
 to be applied to all dbs on startup.
+
+## API
+
+### `/qotd`
+
+Pull a random quote from the database
+
+#### Example response
+```json
+{
+  "quote": "Cheese is tasty",
+  "author": {
+    "first_name": "Mr.",
+    "last_name": "Mouse"
+  }
+}
+```
+
+### `/authors`
+
+Pull all the authors from the database
+
+#### Example response
+```json
+{
+  "authors": [
+    {
+        "first_name": "Mr.",
+        "last_name": "Mouse"
+    }
+  ]
+}
+```
+
+## Scope reduction

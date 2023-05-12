@@ -1,15 +1,22 @@
 from rest_framework.decorators import api_view
 from rest_framework.request import Request
+from django.http import JsonResponse
+from .models import Quote, Author
+from .serializers import QuoteSerializer, AuthorSerializer
 
 
 @api_view(['GET'])
 def get_random_quote(request: Request):
-    pass
+    random_quote = Quote.objects.order_by("?").first()
+    serializer = QuoteSerializer(random_quote)
+    return JsonResponse(serializer.data)
 
 
 @api_view(['GET'])
 def get_all_authors(request: Request):
-    pass
+    all_authors = Author.objects.all()
+    serializer = AuthorSerializer(all_authors, many=True)
+    return JsonResponse({"authors": serializer.data})
 
 
 @api_view(['GET'])
