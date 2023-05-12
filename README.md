@@ -56,4 +56,22 @@ Pull all the authors from the database
 }
 ```
 
+### `/quotd/Mr. Mouse`
+
+Pull a random quote from the defined author from the database
+First name and last name must be provided in the url
+
+#### Example response
+```json
+{
+  "quote": "Cheese is tasty",
+  "author": {
+    "first_name": "Mr.",
+    "last_name": "Mouse"
+  }
+}
+```
+
+#### Will return `404` if no quote/author exists that matches
+
 ## Scope reduction
