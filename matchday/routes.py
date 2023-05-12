@@ -48,7 +48,6 @@ def get_random_quote_from_zen(request: Request):
         return HttpResponseServerError()
 
     json = response.json()[0]
-    print(json)
     f_name, l_name = json["a"].split(' ')
     quote = {
         "quote": json["q"],
