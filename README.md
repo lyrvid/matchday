@@ -33,7 +33,7 @@ via the json file `example_db.json`
 
 ## API
 
-### `/qotd`
+### `GET @ /qotd`
 
 Pull a random quote from the database
 
@@ -50,7 +50,7 @@ Pull a random quote from the database
 
 #### Returns `404` if no quotes in the database
 
-### `/authors`
+### `GET @ /authors`
 
 Pull all the authors from the database
 
@@ -71,7 +71,7 @@ Pull all the authors from the database
 }
 ```
 
-### `/quotd/Mr. Mouse`
+### `GET @ /quotd/Mr. Mouse`
 
 Pull a random quote from the defined author from the database
 First name and last name must be provided in the url
@@ -89,7 +89,7 @@ First name and last name must be provided in the url
 
 #### Will return `404` if no quote/author exists that matches
 
-### `/quotd/zen`
+### `GET @ /quotd/zen`
 
 Pull a random quote from the ZenQuotes API
 
